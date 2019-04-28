@@ -1,0 +1,42 @@
+<div class="grid_12 statuses">
+
+  <% @users.each do |user| %>
+
+    <div class="user-status grid_12">
+
+      <div class="grid_3 alpha ">
+        <div class="circle 
+          <%= 'green' if user.status == 'In office' || user.status == 'Remote working'  %>
+          <%= 'orange' if user.status == 'Out of office' || user.status == 'Lunch' || user.status == 'On site' %>
+          <%= 'red' if user.status == 'Home' || user.status == 'Holiday' || user.status == 'In meeting' %>
+          ">
+        </div>
+        <p><strong><%= user.firstname + " " + user.lastname %></strong></p>
+      </div>
+
+      <div class="grid_2">
+        <p><%= user.status %></p>
+      </div>
+
+      <div class="grid_4">
+        <% if user.comments.present? %>
+          <p class="small"><%= user.comments %></p>
+        <% else %>
+          <br />
+        <% end %>
+      </div>
+
+      <div class="grid_3 omega">
+        <% if user.status.present? %>
+          <p class="small comments">Updated <%= time_ago_in_words(user.updated_at) %> ago</p>
+        <% else %>
+          <br />
+        <% end %>
+      </div>
+    
+    </div>
+
+
+  <% end %>
+
+</div>

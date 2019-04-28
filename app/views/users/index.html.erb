@@ -1,0 +1,10 @@
+
+<% if logged_in? %>
+
+  <%= render 'home' %>
+
+<% else %>
+
+ <%= render 'sessions/form'%>
+
+<% end %>

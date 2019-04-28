@@ -1,0 +1,94 @@
+
+<div class="grid_12 hotdesks">
+
+  <div class="grid_12 top-bar">
+    <div class="grid_6 alpha">
+      <h2>Hot Desk</h2>
+    </div>
+
+    <div class="grid_6 omega">
+
+      <% if @t.strftime("%A") == "Saturday" || @t.strftime("%A") == "Sunday"   %>
+        <h2><span class="small">w/c </span> <%= @next_week.strftime("%d/%m/%Y") %></h2>
+      <% else %>
+        <h2><span class="small">w/c </span> <%= DateTime.now.beginning_of_week(start_day = :monday).strftime("%d/%m/%Y") %></h2>
+      <% end %>
+      
+    </div>
+  </div>
+
+  <div class="grid_12 days">
+  
+    <% @days.each do |day| %>
+
+      <div class=" grid_12 day-box">
+
+        <div class="grid_2 alpha">
+          <h3><%= day %></h3>
+        </div>
+
+        <div class="grid_5 am-box">
+          <h3>AM</h3>
+          <% get_slots(day, "AM").each do |slot| %>
+            
+            <div class="grid_4 alpha">
+              <p><strong>Desk <%= slot.desk_reference %></strong></p>
+            </div>
+
+            <div class="grid_4">
+              <% if slot.user_id.present? %>
+                <p class="reduce"><%= slot.user.firstname + " " + slot.user.lastname %></p>
+              <% else %>
+                <p class="highlight">Available</p>
+              <% end %>
+            </div>
+
+            <div class="grid_4 omega">
+              <% if slot.user_id.present? && slot.user_id == current_user.id %>
+                <%= link_to "Cancel", cancel_desk_desk_path(slot) %>
+              <% elsif slot.user_id.present? %>
+                <br />
+              <% else %>
+                <%= link_to "Book", book_desk_desk_path(slot) %>
+              <% end %>
+            </div>
+            
+          <% end %>
+        </div>
+
+        <div class="grid_5 pm-box omega">
+          <h3>PM</h3>
+          <% get_slots(day, "PM").each do |slot| %>
+            
+            <div class="grid_4 alpha">
+              <p><strong>Desk <%= slot.desk_reference %></strong></p>
+            </div>
+
+            <div class="grid_4">
+              <% if slot.user_id.present? %>
+                <p class="reduce"><%= slot.user.firstname + " " + slot.user.lastname %></p>
+              <% else %>
+                <p class="highlight">Available</p>
+              <% end %>
+            </div>
+
+            <div class="grid_4 omega">
+              <% if slot.user_id.present? && slot.user_id == current_user.id %>
+                <%= link_to "Cancel", cancel_desk_desk_path(slot) %>
+              <% elsif slot.user_id.present? %>
+                <br />
+              <% else %>
+                <%= link_to "Book", book_desk_desk_path(slot) %>
+              <% end %>
+            </div>
+
+          <% end %>
+        </div>
+
+      </div>
+
+    <% end %>
+  
+  </div>
+
+</div>

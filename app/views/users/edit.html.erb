@@ -1,0 +1,5 @@
+<% @page = "edit-user" %>
+
+<%= render 'form' %>
+
+<%= link_to "Delete account", user_path, method: :delete, data: {confirm: "Are you sure you want to delete your profile? All information will be deleted and unretrievable."} %>

@@ -1,0 +1,2 @@
+class Carspace < ApplicationRecord
+end

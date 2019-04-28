@@ -1,0 +1,14 @@
+<header>
+  <h1><%= link_to "IN / OUT BOARD", root_path %></h1>
+
+  <% if logged_in? %>
+
+    <%= render 'shared/navigation' %>
+
+    <div>
+      <%= link_to current_user.firstname + " " + current_user.lastname, edit_user_path(current_user) %>
+      <%= link_to "Log out", session_path, method: :delete %>
+    </div>
+  <% end %>
+  
+</header>

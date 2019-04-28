@@ -1,0 +1,11 @@
+<% if flash[:error].present? %>
+  <div data-alert class="grid_12 callout warning">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if flash[:success].present? %>
+  <div data-alert class="grid_12 callout success">
+    <%= flash[:success] %>
+  </div>
+<% end %>

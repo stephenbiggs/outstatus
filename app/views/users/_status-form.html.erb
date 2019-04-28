@@ -1,0 +1,24 @@
+
+
+  <%= simple_form_for @user do |f| %>
+
+    <div class="grid_3 alpha">
+      <%= f.input :status, label: false, collection: ["In office", "Home", "Lunch", "In meeting", "On site", "Out of office", "Remote working", "Holiday"], include_blank: false %>
+    </div>
+
+    <div class="grid_5">
+      <%= f.input :comments, label: false, placeholder: "Comments" %>
+    </div>
+
+    <div class="grid_2">
+      <%= f.button :submit, "Update" %>
+    </div>
+
+    <div class="grid_2 omega">
+      <% if space_taken? %>
+        <%= link_to "Release parking", release_space_user_path(current_user), class: "button" %>
+      <% end %>
+    </div>
+
+  <% end %>
+

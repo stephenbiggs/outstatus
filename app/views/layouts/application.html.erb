@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "In / Out Board" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <%= render 'shared/header'%>   
+
+
+    <div id="content" class="grid_12">
+
+      <%= render 'shared/notifications'%>
+
+        <div class="centered">
+
+                <%= yield %>
+
+        </div>
+
+    </div>
+
+
+    <%= render 'shared/footer'%> 
+  
+
+  </body>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+</html>

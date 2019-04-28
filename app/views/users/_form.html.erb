@@ -1,0 +1,23 @@
+<div class="form-box">
+
+  <%= simple_form_for @user do |f| %>
+
+    <%= f.input :firstname, label: "First name" %>
+
+    <%= f.input :lastname, label: "Last name" %>
+
+    <%= f.input :email %>
+
+    <%= f.input :password, label: "Password (must include numbers, lowercase and uppercase letters)" %>
+
+    <%= f.input :password_confirmation %>
+
+    <% if @page == "edit-user" %>
+      <%= f.button :submit, "Update details" %>
+    <% else %>
+      <%= f.button :submit, "Register" %>
+    <% end %>
+
+  <% end %>
+
+</div>

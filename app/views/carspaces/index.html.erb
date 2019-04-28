@@ -1,0 +1,52 @@
+
+<div class="grid_12 carspaces">
+
+  <h2>Parking</h2>
+
+  <% @carspaces.each do |space| %>
+
+    <div class="user-status grid_12">
+
+      <div class="grid_1 alpha ">
+        <div class="circle 
+          <%= 'green' if space.status == 'Available' %>
+          <%= 'red' if space.status == 'Unavailable' %>
+          ">
+        </div>
+        <p><%= space.space_reference %></p>
+      </div>
+
+      <div class="grid_2">
+        <p><strong><%= space.status %></strong></p>
+      </div>
+
+      <div class="grid_3">
+        <% if get_user(space.taken_user_id).present? %>
+          <p>Used by <%= get_user(space.taken_user_id).firstname + " " + get_user(space.taken_user_id).lastname %></p>
+        <% else %>
+          <br />
+        <% end %>
+      </div>
+
+      <div class="grid_2">
+        <p class="small"><%= get_user(space.space_owner_id).comments %></p>
+      </div>
+
+      <div class="grid_3">
+        <p class="small comments">Updated <%= time_ago_in_words(space.updated_at) %> ago</p>
+      </div>
+
+      <div class="grid_1 omega">
+        <% if space.status == "Available" %>
+          <% if space_taken?.blank? %>
+            <%= link_to "Use", use_space_carspace_path(space) %>
+          <% end %>
+        <% end %>
+      </div>
+    
+    </div>
+
+
+  <% end %>
+
+</div>

@@ -1,0 +1,415 @@
+/*
+	Ver. 2.0
+	LRD: 23.09.18
+*/
+
+/***** MAKE SURE INCLUDE RESET.CSS *****/
+
+
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+/* Global Variables */
+
+$primary-color: #222;
+$secondary-color: #fff;
+$third-color: cornflowerblue;
+$fourth-color: gray;
+
+
+/* Core */
+body,html { height: 100%; line-height: 1.3; color: $primary-color; font-family: 'Nunito', sans-serif; }
+img { max-width: 100%; }
+.centered { margin: 0 auto; width: 90%; max-width: 1000px; text-align: left; }
+.clear { display: block; line-height: 0; font-size: 0; margin: 0; padding: 0; height: 0; overflow: hidden; clear: both; }
+.hide { display: none;}
+/* .bg_image { background-image: url(bg2.jpg); background-size: cover; } */
+
+/* Page Styles */
+/* 16px browser default */
+h1 { font-size: 28px; }
+h2 { font-size: 24px; font-weight: 700; }
+h3 { font-size: 18px; font-weight: 700; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 10px; }
+p { font-size: 1rem; padding-bottom: 1rem; }
+
+a { text-decoration: none; cursor: pointer; }
+a, a:active, a:visited { color: $primary-color; }
+a:hover { color: $fourth-color; }
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+style:focus { outline: 1; }
+.small { font-size: 0.8rem; }
+
+/* Inputs to fix zoom on mobile */
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"],
+input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"],
+input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { font-size: 16px; }
+
+
+.button {
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: $primary-color;
+  color: $secondary-color !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 1rem;
+  outline: 0;
+  padding: .85em 1em;
+  text-align: center;
+  text-decoration: none;
+  transition-delay: 0s,0s;
+  transition-duration: .25s,.25s;
+  transition-property: background-color,color;
+  transition-timing-function: ease-out,ease-out;
+  vertical-align: middle;
+}
+
+.button:hover {
+	 background-color: $secondary-color;
+	 color: $primary-color !important;
+   border: 1px solid $primary-color;
+ }
+
+ label {
+  border-width: 0;
+  color: gray;
+  display: block;
+  font-size: .875rem;
+  margin: 1% 0%;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+input {
+  background-color: #fefefe;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  box-shadow: rgba(10,10,10,.1) 0 1px 2px inset;
+  color: $primary-color;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 100%;
+  height: 2.4375rem;
+  line-height: 1.15;
+  margin: 1% 0%;
+  overflow: visible;
+  padding: .5rem;
+  transition-delay: 0s,0s;
+  transition-duration: .5s,.25s;
+  transition-property: box-shadow,border-color;
+  transition-timing-function: ease,ease-in-out;
+}
+
+input[type="submit"] {
+	width: auto;
+}
+
+select {
+	background-color: #fefefe;
+	border: 1px solid $primary-color;
+	border-radius: 5px;
+	box-sizing: border-box;
+	color: $primary-color;
+	font-size: 1rem;
+  width: 100%;
+	height: 2.4375rem;
+	line-height: normal;
+	margin: 1% 0%;
+	padding: .5rem 1.5rem .5rem .5rem;
+	text-transform: none;
+	transition-delay: 0s,0s;
+	transition-duration: .5s,.25s;
+	transition-property: box-shadow,border-color;
+	transition-timing-function: ease,ease-in-out;
+}
+
+textarea {
+	background-color: #fefefe;
+	border: 1px solid $primary-color;
+	border-radius: 5px;
+	box-shadow: rgba(10,10,10,.1) 0 1px 2px inset;
+	box-sizing: border-box;
+	color: $primary-color;
+	display: block;
+	font-size: 1rem;
+	font-weight: 400;
+  width: 100%;
+	height: 10rem;
+	line-height: 1.15;
+	margin: 1% 0%;
+	overflow: auto;
+	padding: .5rem;
+	transition-delay: 0s,0s;
+	transition-duration: .5s,.25s;
+	transition-property: box-shadow,border-color;
+	transition-timing-function: ease,ease-in-out;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 214, 222, 0.8);
+}
+
+.modal-close {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  color: $primary-color;
+  padding: 20px 25px;
+	font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 760px;
+  width: 90%;
+  transform: translate(-50%, -50%);
+	background-color: $secondary-color;
+	padding: 5%;
+	color: $primary-color;
+	border-radius: 5px;
+	text-align: left;
+}
+
+.modal {
+  display: none;
+}
+
+.modal-content p {
+	color: $primary-color;
+}
+
+.red { background-color: #EB5757; }
+.green { background-color: #75B751; }
+.orange { background-color: #FFF493; }
+.highlight { color: #75B751; font-weight: 700; }
+.reduce { color: $fourth-color; }
+
+/* Responsive Grid (target / context = result) */
+/* based on 1000px base width and 16px browser default for fonts */
+/* 1000px base width with 20px gutter */
+/* Margin is % of the parent element not the element */
+
+.grid_1 { width: 6.5%; } 		/* 65px */
+.grid_2 { width: 15%; } 		/* 150px */
+.grid_3 { width: 23.5%; } 	/* 235px */
+.grid_4 { width: 32%; } 		/* 320px */
+.grid_5 { width: 40.5%; } 	/* 405px */
+.grid_6 { width: 49%; } 		/* 490px */
+.grid_7 { width: 57.5%; } 	/* 575px */
+.grid_8 { width: 66%; } 		/* 660px */
+.grid_9 { width: 74.5%; } 	/* 745px */
+.grid_10 { width: 83%; } 		/* 830px */
+.grid_11 { width: 91.5%; } 	/* 915px */
+.grid_12 { width: 100%; } 	/* 1000px */
+
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+		margin: 0 2% 1% 0; /* 0 20px 10px 0; */
+		float: left;
+		display: block;
+}
+
+.alpha { margin-left: 0px; }
+.omega { margin-right: 0px; }
+
+
+/* MAIN BUILD */
+
+/* Header */
+.callout {
+  position: fixed;
+  top: 0;
+  left: 0;
+	background-color: $secondary-color;
+	opacity: 1;
+	border: 1px solid rgba(0,0,0,0.25);
+	margin: 0 0 1rem 0;
+	padding: 1rem;
+	color: $secondary-color;
+	z-index: 100;
+}
+
+.success {
+	background-color: green;
+}
+
+.warning {
+	background-color: orange;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $third-color;
+  padding: 15px;
+  color: $secondary-color;
+
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  div a {
+    margin-left: 15px;
+  }
+
+  a, a:active, a:visited { color: $secondary-color; }
+  a:hover { color: #1168AB; }
+}
+
+/* Navigation */
+nav a {
+  margin: 0px 15px;
+}
+
+
+
+/* Footer */
+
+
+/* Content */
+.form-box {
+  width: 450px;
+  margin: 100px auto;
+
+  input {
+    margin-bottom: 15px;
+  }
+}
+
+.home, .carspaces, .hotdesks {
+  padding: 25px;
+
+  .section {
+    padding: 10px;
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+  }
+}
+
+.status-bar {
+  margin: 15px 0;
+
+  input, select {
+    margin: 0;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+}
+
+.statuses, .carspaces {
+  p {
+    padding: 0;
+    vertical-align: baseline;
+    display: inline-block;
+  }
+
+  p.comments {
+    color: $fourth-color;
+  }
+
+  .grid_1, .grid_2, .grid_3, .grid_4, .grid_12 {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+  }
+}
+
+.carspaces {
+  padding-top: 50px;
+}
+
+.user-status {
+  margin-top: 10px;
+}
+
+.circle {
+  display: inline-block; 
+  margin-right: 25px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.help {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  font-weight: 700;
+  background-color: cornflowerblue;
+  color: $secondary-color;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.day-box {
+  text-align: center;
+
+  h3 {
+    margin-bottom: 15px;
+  }
+
+  .grid_2, .grid_5 {
+    margin-bottom: 0;
+  }
+}
+
+.am-box, .pm-box {
+  border: solid 1px $fourth-color;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.top-bar {
+  margin: 25px 0px;
+
+  .omega {
+    text-align: right;
+  }
+
+  span {
+    margin-right: 15px;
+  }
+}

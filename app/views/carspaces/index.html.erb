@@ -29,7 +29,11 @@
       </div>
 
       <div class="grid_2">
-        <p class="small"><%= get_user(space.space_owner_id).comments if @user %></p>
+        <% if get_user(space.space_owner_id).present? %>
+          <p class="small"><%= get_user(space.space_owner_id).comments %></p>
+        <% else %>
+          <br />
+        <% end %>
       </div>
 
       <div class="grid_3">

@@ -29,7 +29,7 @@
       </div>
 
       <div class="grid_2">
-        <p class="small"><%= get_user(space.space_owner_id).comments.presence %></p>
+        <p class="small"><%= get_user(space.space_owner_id).comments if @user %></p>
       </div>
 
       <div class="grid_3">

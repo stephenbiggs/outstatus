@@ -3,7 +3,7 @@ class CarspacesController < ApplicationController
   before_action :make_sure_logged_in
 
   def index
-    @carspaces = Carspace.all.order('created_at DESC')
+    @carspaces = Carspace.all.order('created_at ASC')
   end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_154546) do
+ActiveRecord::Schema.define(version: 2019_04_29_181050) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_154546) do
   end
 
   create_table "carspaces", force: :cascade do |t|
-    t.integer "space_reference"
+    t.string "space_reference"
     t.integer "space_owner_id"
     t.integer "taken_user_id"
     t.string "status"

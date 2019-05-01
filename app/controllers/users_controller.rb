@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user.status = "In office"
 
     if @user.save
-      
+      UserMailer.registration_confirmation(@user).deliver
       flash[:success] = "Please confirm your email address to continue"
       
       redirect_to root_path
